@@ -34,22 +34,27 @@ function App() {
 
       <main className="relative z-10 min-h-svh flex flex-col items-center justify-center px-4 py-12 sm:py-20 gap-12 sm:gap-24">
         {/* ── Typewriter ── */}
-        <section className="text-center w-full overflow-visible min-h-14 sm:min-h-10 md:min-h-16 lg:min-h-20">
-          <Typewriter
-            text={[
-              "你那麼焦慮 和焦焦的烤肉有什麼區別 肯定很好吃，喜歡你",
-              "你那麼能熬 和牛肉湯有什麼區別 肯定很好吃。喜歡你",
-              "你那麼高冷 和冰淇淋有什麼區別 肯定很好吃，喜歡你",
-              "你真好拿捏 和軟柿子有什麼區別 肯定很好吃，喜歡你",
-              "你那麼脆弱 和蛋撻有什麼區別 肯定很好吃，喜歡你",
-              "你過得那麼苦 和生巧克力有什麼區別 一定很好吃，喜歡你",
-            ]}
-            speed={100}
-            className="text-base sm:text-2xl md:text-4xl lg:text-5xl font-light leading-relaxed text-white"
-            waitTime={2000}
-            deleteSpeed={30}
-            cursorChar={"_"}
-          />
+        <section className="text-center w-full overflow-visible">
+          {/* Fixed-height wrapper — prevents layout shift when text wraps */}
+          <div className="relative min-h-16 sm:min-h-10 md:min-h-16 lg:min-h-20">
+            <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-center">
+              <Typewriter
+                text={[
+                  "你那麼焦慮 和焦焦的烤肉有什麼區別 肯定很好吃，喜歡你",
+                  "你那麼能熬 和牛肉湯有什麼區別 肯定很好吃。喜歡你",
+                  "你那麼高冷 和冰淇淋有什麼區別 肯定很好吃，喜歡你",
+                  "你真好拿捏 和軟柿子有什麼區別 肯定很好吃，喜歡你",
+                  "你那麼脆弱 和蛋撻有什麼區別 肯定很好吃，喜歡你",
+                  "你過得那麼苦 和生巧克力有什麼區別 一定很好吃，喜歡你",
+                ]}
+                speed={100}
+                className="text-lg sm:text-2xl md:text-4xl lg:text-5xl font-light leading-relaxed text-white"
+                waitTime={2000}
+                deleteSpeed={30}
+                cursorChar={"_"}
+              />
+            </div>
+          </div>
 
           <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mt-8 sm:mt-12">
             <a
