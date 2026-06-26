@@ -1,0 +1,12 @@
+# Cloudflare Pages configuration
+# Deploy via: npx wrangler pages deploy dist
+# Or connect your GitHub repo to Cloudflare Pages for auto-deploy
+
+name = "personalsite"
+pages_build_output_dir = "dist"
+compatibility_date = "2026-06-26"
+
+# Optional: Custom domain configuration (uncomment and set your domain)
+# [[routes]]
+# pattern = "yourdomain.com/*"
+# zone_name = "yourdomain.com"
