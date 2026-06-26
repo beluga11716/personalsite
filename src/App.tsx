@@ -34,7 +34,7 @@ function App() {
 
       <main className="relative z-10 min-h-svh flex flex-col items-center justify-center px-4 py-12 sm:py-20 gap-12 sm:gap-24">
         {/* ── Typewriter ── */}
-        <section className="text-center w-full overflow-visible">
+        <section className="text-center w-full overflow-visible min-h-14 sm:min-h-10 md:min-h-16 lg:min-h-20">
           <Typewriter
             text={[
               "你那麼焦慮 和焦焦的烤肉有什麼區別 肯定很好吃，喜歡你",
