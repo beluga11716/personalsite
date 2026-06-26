@@ -32,7 +32,7 @@ function App() {
     <>
       <MistBackground />
 
-      <main className="relative z-10 min-h-svh flex flex-col items-center justify-center px-4 py-20 gap-24">
+      <main className="relative z-10 min-h-svh flex flex-col items-center justify-center px-4 py-12 sm:py-20 gap-12 sm:gap-24">
         {/* ── Typewriter ── */}
         <section className="text-center w-full overflow-visible">
           <Typewriter
@@ -45,13 +45,13 @@ function App() {
               "你過得那麼苦 和生巧克力有什麼區別 一定很好吃，喜歡你",
             ]}
             speed={100}
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light leading-relaxed text-white !whitespace-nowrap"
+            className="text-base sm:text-2xl md:text-4xl lg:text-5xl font-light leading-relaxed text-white"
             waitTime={2000}
             deleteSpeed={30}
             cursorChar={"_"}
           />
 
-          <div className="flex items-center justify-center gap-4 mt-12">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mt-8 sm:mt-12">
             <a
               href="https://github.com/beluga11716"
               target="_blank"
@@ -94,7 +94,7 @@ function App() {
         {/* ── Lens Cards ── */}
         <section className="flex flex-wrap items-center justify-center gap-6">
           {cards.map((card) => (
-            <Card key={card.id} className="w-96 shadow-none shrink-0">
+            <Card key={card.id} className="w-full max-w-96 shadow-none">
               <CardHeader className="p-0">
                 <Lens zoomFactor={2} lensSize={220}>
                   <div className="w-full h-60 overflow-hidden rounded-t-xl">
