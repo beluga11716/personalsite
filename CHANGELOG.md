@@ -47,8 +47,29 @@
 - Email: ggbeluga11716@gmail.com
 - Telegram: https://t.me/+jjPi8QtiO2ZhMzE9 (后添加)
 
-### 其他
-- 网站标题改为 "raynardの个人页"
-- 网站图标从 newastroblog 项目复制 favicon.ico
-- GitHub/Email 链接更新为真实地址
-- 多处字号、颜色微调
+### 图片切换：随机图 → 固定图
+- 随机图 URL 在 Lens 双渲染下始终存在图片不一致问题（URL 去重→内容指纹去重均失败）
+- 换用三张固定 webp 图片：`tu.raynard.lol/file/wallpaper/1781497514745.webp` 等
+- 移除 `RandomImage` 组件，改回原生 `<img>` 标签，固定 URL 无一致性问题
+
+### Cloudflare Workers 部署
+- 创建 `src/worker.ts`：Workers 入口，处理静态资源 + SPA fallback
+- 更新 `wrangler.toml`：`main = "src/worker.ts"` + `[assets] directory = "./dist"`
+- 安装 `@cloudflare/workers-types`
+- 更新 `.github/workflows/deploy.yml`：从 GitHub Pages 切换为 `npx wrangler@latest deploy`
+- 修复 `_redirects` 无限循环 → 删除文件（SPA fallback 由 worker.ts 处理）
+- 修复 `wrangler-action@v3` 旧版 wrangler 不兼容 → 直接用 `npx wrangler@latest`
+
+### 手机适配
+- 打字机：移除 `!whitespace-nowrap`，字号改为 `text-base sm:text-2xl md:text-4xl lg:text-5xl`
+- 卡片：`w-96 shrink-0` → `w-full max-w-96`，手机端撑满宽度
+- 间距：`py-20 gap-24` → `py-12 sm:py-20 gap-12 sm:gap-24`
+- 社交链接：添加 `flex-wrap`，`gap-2 sm:gap-4 mt-8 sm:mt-12`
+
+### 打字机布局抖动修复
+- 移除 nowrap 后文字换行时高度变化，导致下方组件上下跳动
+- 解决：打字机会置于固定高度容器（`min-h-16 sm:min-h-10 md:min-h-16 lg:min-h-20`）内，用 `absolute` + `top-1/2 -translate-y-1/2` 脱离文档流，换行不影响容器高度
+
+### 手机字号调整
+- 基础字号 `text-base`(16px) → `text-lg`(18px)，容器 `min-h-14` → `min-h-16`
+- `sm:` 及以上断点不变
