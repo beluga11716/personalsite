@@ -1,0 +1,11 @@
+# Cloudflare Workers with static assets
+name = "personalsite"
+main = "src/worker.ts"
+compatibility_date = "2026-06-26"
+
+[assets]
+directory = "./dist"
+binding = "ASSETS"
+
+[observability]
+enabled = true
