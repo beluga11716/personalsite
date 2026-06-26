@@ -142,7 +142,7 @@ const cards = [
     title: "my blog",
     description:
       "隨筆、筆記、生活片段。記錄那些值得被記住的想法與瞬間。",
-    url: "https://raynard.lol",
+    url: "https://blog.raynard.lol",
     image: "https://tu.raynard.lol/file/wallpaper/1781497514745.webp",
   },
   {
